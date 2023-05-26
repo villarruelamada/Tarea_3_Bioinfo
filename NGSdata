@@ -1,0 +1,6 @@
+ls-l Marra2014_data.fasta
+cp Marra2014_data.fasta my_file.fasta
+grep -c "isogroup00036" Marra2014_data.fasta
+tr "  " "," my_file.fasta
+cut -d "," -f3 my_file.fasta | sort | uniq -c | wc -l
+awk -F"," "{print $2 " " $4}" my_file.fasta | sort -rnk2 | head -n1
